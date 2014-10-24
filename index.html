@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Shiny App For Forecasting the Dow Jones Index</title>
+  <meta charset="utf-8">
+  <meta name="description" content="A Shiny App For Forecasting the Dow Jones Index">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>A Shiny App For Forecasting the Dow Jones Index</h1>
+    <h2></h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h3>Market Forecasting</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>A classic goal of Big Data analytics is to predict economic trends</p></li>
+<li><p>The Dow Jones Industrial Average is a stock market index, and one of several indices created by Wall Street Journal editor and Dow Jones &amp; Company co-founder Charles Dow</p></li>
+<li><p>It is an index that shows how 30 large publicly owned companies based in the United States have traded during a standard trading session in the stock market</p></li>
+<li><p>The shiny app uses several forecasting methods that are both simple and effective, to display the market trend based on data from a specified time period, and given a past-data window</p></li>
+<li><p>The data we use is drawn from the time period of December 31, 1999 to October 21, 2014</p></li>
+</ul>
+
+<p>Source of the data:
+D.H. Williamson, &#39;Daily Closing Value of the Dow Jones Average, 1885 to Present,&#39; MeasuringWorth, 2012. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>Average algorithm</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Forecasts of all future values are equal to the mean of the historical data</p></li>
+<li><p>Let the historical data be denoted by
+<img src="t11.png" alt="width"></p></li>
+<li><p>The forecast is given by 
+<img src="t12.png" alt="width"></p></li>
+<li><p>The notation
+<img src="t13.png" alt="width">
+is a short-hand for the estimate of
+<img src="t13.png" alt="width">
+based on the data
+<img src="t11.png" alt="width"></p></li>
+<li><p>This method can also be used for cross-sectional data, i.e. when predicting a value not included in the data set</p></li>
+<li><p>In this instance the prediction for values not observed is the average of those values that have been observed</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>Naïve algorithm</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>This method is only appropriate for time series data</p></li>
+<li><p>All forecasts are simply set to be the value of the last observation, i.e. the forecasts of all future values are set to be <img src="t21.png" alt="width">, denoting the last observed value</p></li>
+<li><p>This method works remarkably well for many economic and financial time series</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>Drift algorithm</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>A variation on the naïve method is to allow the forecasts to increase or decrease over time, where the amount of change over time (the drift) is set to be the average change seen in the historical data</p></li>
+<li><p>So the forecast for time <img src="t31.png" alt="width"> is given by</p></li>
+</ul>
+
+<p><img src="t32.png" alt="width"></p>
+
+<ul>
+<li>This is equivalent to drawing a line between the first and last observation, and extrapolating it into the future</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>App Output</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>The app allows the user to select and run any one of the algorithms to display separate graphs based on the selected closing values, and past-data forecasting window</p></li>
+<li><p>The following is a sample output that combines all three algorithm outputs in a single graph:
+<img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" /></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Market Forecasting'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Average algorithm'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Naïve algorithm'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Drift algorithm'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='App Output'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
